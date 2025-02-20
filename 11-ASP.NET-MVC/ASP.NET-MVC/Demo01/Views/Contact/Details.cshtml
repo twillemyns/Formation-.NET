@@ -1,0 +1,24 @@
+﻿@{
+    ViewData["Title"] = "Détails";
+}
+
+@model Contact
+
+<div class="card mb-3" style="max-height: 500px">
+    <div class="row g-0">
+        <div class="col-md-4">
+            <img src="https://tse2.mm.bing.net/th?id=OIP.XIJ0I3LnyP6JU32WO-j7vQHaKX&pid=Api" class="img-fluid rounded-start" alt="...">
+        </div>
+        <div class="col-md-8">
+            <div class="card-body">
+                <h5 class="card-title">@Model.FirstName @Model.LastName</h5>
+                <p>@Model.Email</p>
+            </div>
+            <div class="card-footer">
+                <a class="btn btn-primary">Modifier</a>
+                <a class="btn btn-danger">Supprimer</a>
+            </div>
+        </div>
+    </div>
+</div>
+

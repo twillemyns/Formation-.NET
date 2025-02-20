@@ -1,0 +1,38 @@
+﻿@{
+    ViewBag.Title = "Liste des marmosets";
+    Layout = "_Layout";
+}
+@model HashSet<Marmoset>
+
+<h2>Liste des marmosets</h2>
+
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Nom</th>
+        <th>Age</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    
+    @foreach (var m in Model.OrderBy(m => m.Id))
+    {
+        <tr>
+            <td>@m.Id</td>
+            <td>@m.Name</td>
+            <td>@m.Age</td>
+            <td>
+                <a asp-action="Details" asp-route-id="@m.Id" class="btn btn-primary">Modifier</a>
+                <a asp-action="Delete" asp-route-id="@m.Id" class="btn btn-danger">Supprimer</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
+
+<form asp-action="Create" method="post">
+    <button class="btn btn-primary">Créer un nouveau marmoset</button>
+</form>
+@* <a asp-action="CreateRandom" class="btn btn-primary">Créer un nouveau marmoset</a> *@

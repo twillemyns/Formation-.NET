@@ -15,12 +15,14 @@ public class User
     public required string LastName { get; set; }
     
     [EmailAddress]
+    [StringLength(100)]
     public required string Email { get; set; }
-    
-    
+
+    [StringLength(50)]
     public required string Password { get; set; }
     
     [Phone]
+    [StringLength(15)]
     public required string PhoneNumber { get; set; }
     
     [StringLength(100)]

@@ -1,5 +1,7 @@
-﻿using Exercice02.Abstractions;
+﻿using System.Linq.Expressions;
+using Exercice02.Abstractions;
 using Exercice02.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace Exercice02.Data.Repositories;
 
@@ -9,8 +11,13 @@ public class UserRepository(AppDbContext context) : IRepository<User>
     {
         return await context.Users.FindAsync(id);
     }
+    
+    public async Task<User?> Get(Expression<Func<User, bool>> predicate)
+    {
+        return await context.Users.FirstOrDefaultAsync(predicate);
+    }
 
-    public async Task<IEnumerable<User>> Get(Func<User, bool> predicate)
+    public async Task<IEnumerable<User>> GetAll(Func<User, bool> predicate)
     {
         return context.Users.Where(predicate);
     }
@@ -18,6 +25,11 @@ public class UserRepository(AppDbContext context) : IRepository<User>
     public async Task<IEnumerable<User>> GetAll()
     {
         return context.Users;
+    }
+
+    public async Task<bool> Any(Expression<Func<User, bool>> predicate)
+    {
+        return await context.Users.AnyAsync(predicate);
     }
 
     public async Task Add(User entity)

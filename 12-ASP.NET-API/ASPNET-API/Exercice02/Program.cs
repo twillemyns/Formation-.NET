@@ -3,6 +3,7 @@ using Exercice02.Data;
 using Exercice02.Data.Repositories;
 using Exercice02.Helpers;
 using Exercice02.Models;
+using Exercice02.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -19,7 +20,15 @@ builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("Default"));
 });
 
+builder.Services.AddScoped<Encryptor>();
 builder.Services.AddScoped<IRepository<User>, UserRepository>();
+builder.Services.AddScoped<AuthService>();
+
+builder.Services.AddScoped<IRepository<Pizza>, PizzaRepository>();
+builder.Services.AddScoped<IRepository<Ingredient>, IngredientRepository>();
+builder.Services.AddScoped<PizzaService>();
+
+builder.Services.AddHostedService<FirstRunService>();
 
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 

@@ -1,0 +1,42 @@
+﻿@page "/magicNumber"
+
+<h3>Le nombre magique</h3>
+
+<p>Nombre d'essais : @_nbTrys</p>
+
+<p>Veuillez saisir un nombre entre 1 et 20 :</p>
+
+<form @onsubmit="OnSubmit">
+    <input type="number" @bind="_tryNumber" class="input-group-text"/>
+    <button type="submit" class="btn btn-primary">Essayer</button>
+</form>
+
+<p>@_message</p>
+
+@code {
+    private int _rdmNumber;
+
+    private int _nbTrys = 5;
+
+    private int _tryNumber;
+
+    private string _message = string.Empty;
+
+    protected override void OnInitialized()
+    {
+        var random = new Random();
+        _rdmNumber = random.Next(1, 21);
+    }
+
+    private void OnSubmit()
+    {
+        if (_tryNumber > _rdmNumber)
+            _message = "Le nombre est plus petit !";
+        else if (_tryNumber < _rdmNumber)
+            _message = "Le nombre est plus grand !";
+        else if (_tryNumber == _rdmNumber)
+            _message = "Bravo, c'est gagné !";
+
+        _nbTrys--;
+    }
+}

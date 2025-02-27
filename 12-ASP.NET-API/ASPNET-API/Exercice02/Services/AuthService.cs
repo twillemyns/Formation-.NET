@@ -7,6 +7,7 @@ using Exercice02.Abstractions;
 using Exercice02.Helpers;
 using Exercice02.Models;
 using Exercice02.Models.DTOs;
+using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 
 namespace Exercice02.Services;
@@ -15,7 +16,7 @@ public class AuthService(
     IRepository<User> userRepository,
     IMapper mapper,
     Encryptor encryptor,
-    AppSettings settings
+    IOptions<AppSettings> options
 )
 {
     public async Task<User?> GetUser(Guid id)
@@ -59,7 +60,7 @@ public class AuthService(
             new(Constants.ClaimUserId, user.Id.ToString())
         };
 
-        var securityKey = settings.SecretKey;
+        var securityKey = options.Value.SecretKey;
 
         var signingCredentials = new SigningCredentials(
             new SymmetricSecurityKey(Encoding.ASCII.GetBytes(securityKey)),
@@ -68,7 +69,7 @@ public class AuthService(
 
         var jwt = new JwtSecurityToken(
             claims: claims,
-            expires: DateTime.UtcNow.AddDays(settings.TokenExpirationDays),
+            expires: DateTime.UtcNow.AddDays(options.Value.TokenExpirationDays),
             signingCredentials: signingCredentials
         );
 

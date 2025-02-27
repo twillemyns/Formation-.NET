@@ -1,5 +1,7 @@
-﻿using Exercice02.Abstractions;
+﻿using System.Linq.Expressions;
+using Exercice02.Abstractions;
 using Exercice02.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace Exercice02.Data.Repositories;
 
@@ -10,7 +12,12 @@ public class PizzaRepository(AppDbContext context) : IRepository<Pizza>
         return await context.Pizzas.FindAsync(id);
     }
 
-    public async Task<IEnumerable<Pizza>> Get(Func<Pizza, bool> predicate)
+    public async Task<Pizza?> Get(Expression<Func<Pizza, bool>> predicate)
+    {
+        return await context.Pizzas.FirstOrDefaultAsync(predicate);
+    }
+
+    public async Task<IEnumerable<Pizza>> GetAll(Func<Pizza, bool> predicate)
     {
         return context.Pizzas.Where(predicate);
     }
@@ -18,6 +25,11 @@ public class PizzaRepository(AppDbContext context) : IRepository<Pizza>
     public async Task<IEnumerable<Pizza>> GetAll()
     {
         return context.Pizzas;
+    }
+
+    public async Task<bool> Any(Expression<Func<Pizza, bool>> predicate)
+    {
+        return await context.Pizzas.AnyAsync(predicate);
     }
 
     public async Task Add(Pizza entity)

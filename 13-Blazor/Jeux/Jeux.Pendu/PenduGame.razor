@@ -1,0 +1,28 @@
+﻿@page "/pendu"
+
+<h3>Le jeu du pendu</h3>
+
+<input type="text" @bind="_tryChar" class="input-group-text"/>
+<button @onclick="() => _pendu.TestChar(_tryChar)" class="btn btn-primary">Essayer</button>
+<p>@_pendu.Masque</p>
+
+<PenduDraw ShowPendu="NbErrors"/>
+
+@code {
+    private string _findWord = string.Empty;
+
+    private int test = 10;
+
+    private char _tryChar;
+    
+    private Pendu _pendu;
+
+    private int NbErrors => 11 - _pendu.NbEssais;
+
+    protected override void OnInitialized()
+    {
+        _findWord = GenerateurDeMots.GenererMot();
+        _pendu = new Pendu(_findWord, 11);
+    }
+    
+}

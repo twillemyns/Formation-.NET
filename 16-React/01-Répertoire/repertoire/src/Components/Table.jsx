@@ -25,7 +25,7 @@ const Table = () => {
 
     return (
         <>
-            <table>
+            <table className="table table-dark">
                 <thead>
                     <tr>
                         <th>#</th>

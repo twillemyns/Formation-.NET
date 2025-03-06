@@ -27,18 +27,21 @@ const Table = () => {
         <>
             <table>
                 <thead>
-                    <th>#</th>
-                    <th>Prénom</th>
-                    <th>Nom</th>
+                    <tr>
+                        <th>#</th>
+                        <th>Prénom</th>
+                        <th>Nom</th>
+                    </tr>
                 </thead>
                 <tbody>
-                    {person.forEach(p => {
-                        <>
-                            <td>{p.Id}</td>
-                            <td>{p.firstname}</td>
-                            <td>{p.lastname}</td>
-                        </>
-                    })
+                    {
+                        person.map(p => (
+                            <tr>
+                                <td>{p.Id}</td>
+                                <td>{p.firstname}</td>
+                                <td>{p.lastname}</td>
+                            </tr>
+                        ))
                     }
                 </tbody>
             </table>

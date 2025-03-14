@@ -7,7 +7,7 @@
     <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
         <Frame BackgroundColor="White" CornerRadius="20">
             <FlexLayout Direction="Column" JustifyContent="SpaceAround" WidthRequest="250">
-                <Label Text="Color Maker" FontSize="20"/>
+                <Label Text="Color Maker" FontSize="Title" HorizontalOptions="Center"/>
                 <Label Text="Pourcentage de rouge :"/>
                 <Slider x:Name="RedSlider" 
                         Minimum="0"
@@ -36,9 +36,9 @@
                         ThumbColor="Blue"
                         ValueChanged="BlueSlider_OnValueChanged"/>
                 <Frame>
-                    <HorizontalStackLayout>
+                    <HorizontalStackLayout HorizontalOptions="Center">
                         <Label x:Name="DisplayColorLabel"/>
-                        <Rectangle x:Name="RectangleColor" WidthRequest="20" HeightRequest="20"/>
+                        <Rectangle x:Name="RectangleColor" WidthRequest="20" HeightRequest="20" Margin="0 0 0 10"/>
                     </HorizontalStackLayout>
                 </Frame>
                 <Button Text="Couleur aléatoire" Clicked="Button_OnClicked"/>

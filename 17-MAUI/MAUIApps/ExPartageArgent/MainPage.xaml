@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ExPartageArgent.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout BackgroundColor="#323232">
+            <Grid RowDefinitions="*, *" ColumnDefinitions="*" RowSpacing="50" Margin="15">
+                <Frame Grid.Row="0" BackgroundColor="#444444" BorderColor="#444444">
+                    <VerticalStackLayout>
+                        <Label Text="Résumé" FontSize="Title" TextColor="#4ed8eb" HorizontalOptions="Center"/>
+                        <HorizontalStackLayout HorizontalOptions="Center">
+                            <FlexLayout JustifyContent="SpaceBetween" WidthRequest="250">
+                                <Label x:Name="PersonalPriceDisplay" FontSize="30" HorizontalOptions="Center" VerticalOptions="Center"/>
+                                <Rectangle BackgroundColor="LightGrey" WidthRequest="5" HeightRequest="150"/>
+                                <VerticalStackLayout VerticalOptions="Center">
+                                    <Label Text="TOTAL" FontSize="15"/>
+                                    <Label x:Name="TotalPriceDisplay"/>
+                                    <Label Text="POURBOIRE" FontSize="15"/>
+                                    <Label x:Name="TipDisplay"/>
+                                </VerticalStackLayout>
+                            </FlexLayout>
+                        </HorizontalStackLayout>
+                    </VerticalStackLayout>
+                </Frame>
+                <VerticalStackLayout Grid.Row="1">
+                    <Grid RowDefinitions="*, *, *, *" ColumnDefinitions="*, 2*" RowSpacing="50">
+
+                        <Label Grid.Row="0" Grid.Column="0" Text="Entrez votre addition (€) :" VerticalOptions="Center"/>
+                        <Entry Grid.Row="0" Grid.Column="1" BackgroundColor="#444444" TextChanged="BillEntry_TextChanged" WidthRequest="200" HorizontalTextAlignment="Center"/>
+
+                        <Label Grid.Row="1" Grid.Column="0" Text="Choisissez votre pourboire:" VerticalOptions="Center"/>
+                        <FlexLayout Grid.Row="1" Grid.Column="1" JustifyContent="SpaceEvenly">
+                            <Button Text="10%" Clicked="Button10_OnClicked" BackgroundColor="#502bd4" TextColor="White"/>
+                            <Button Text="15%" Clicked="Button15_OnClicked" BackgroundColor="#502bd4" TextColor="White"/>
+                            <Button Text="20%" Clicked="Button20_OnClicked" BackgroundColor="#502bd4" TextColor="White"/>
+                        </FlexLayout>
+
+                        <Label Grid.Row="2" Grid.Column="0" x:Name="TipSliderLabel" VerticalOptions="Center"/>
+                        <Slider Grid.Row="2" Grid.Column="1" x:Name="TipSlider" Minimum="0" Maximum="100" MinimumTrackColor="#502bd4" ThumbColor="#502bd4" WidthRequest="200" ValueChanged="TipSlider_OnValueChanged"/>
+
+                        <Label Grid.Row="3" Grid.Column="0" Text="Nombre de participants:" VerticalOptions="Center"/>
+                        <FlexLayout Grid.Row="3" Grid.Column="1" JustifyContent="SpaceAround">
+                            <Button Text="-" Clicked="MinusButton_OnClicked" BackgroundColor="#502bd4" TextColor="White"/>
+                            <Frame BackgroundColor="#444444" BorderColor="#444444" WidthRequest="75">
+                                <Label x:Name="NbPersonLabel" HorizontalOptions="Center"/>
+                            </Frame>
+                            <Button Grid.Row="0" Grid.Column="0" Text="+" Clicked="PlusButton_OnClicked" BackgroundColor="#502bd4" TextColor="White"/>
+                        </FlexLayout>
+
+                    </Grid>
+                </VerticalStackLayout>
+            </Grid>
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

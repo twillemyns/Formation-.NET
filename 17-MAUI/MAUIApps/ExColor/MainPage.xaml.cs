@@ -16,9 +16,7 @@ namespace ExColor
 
             _color = Color.FromRgb(_red, _green, _blue);
 
-            Page.BackgroundColor = _color;
-            DisplayColorLabel.Text = $"Couleur: {_color.ToHex()}";
-            RectangleColor.BackgroundColor = _color;
+            ChangeValues();
         }
 
         private void RedSlider_OnValueChanged(object? sender, ValueChangedEventArgs e)
@@ -26,9 +24,7 @@ namespace ExColor
             _red = (int) e.NewValue;
             _color = Color.FromRgb(_red, _green, _blue);
 
-            Page.BackgroundColor = _color;
-            DisplayColorLabel.Text = $"Couleur: {_color.ToHex()}";
-            RectangleColor.Fill = _color;
+            ChangeValues();
         }
 
         private void GreenSlider_OnValueChanged(object? sender, ValueChangedEventArgs e)
@@ -36,9 +32,7 @@ namespace ExColor
             _green = (int) e.NewValue;
             _color = Color.FromRgb(_red, _green, _blue);
 
-            Page.BackgroundColor = _color;
-            DisplayColorLabel.Text = $"Couleur: {_color.ToHex()}";
-            RectangleColor.Fill = _color;
+            ChangeValues();
         }
 
         private void BlueSlider_OnValueChanged(object? sender, ValueChangedEventArgs e)
@@ -46,9 +40,7 @@ namespace ExColor
             _blue = (int) e.NewValue;
             _color = Color.FromRgb(_red, _green, _blue);
 
-            Page.BackgroundColor = _color;
-            DisplayColorLabel.Text = $"Couleur: {_color.ToHex()}";
-            RectangleColor.Fill = _color;
+            ChangeValues();
         }
 
         private void Button_OnClicked(object? sender, EventArgs e)
@@ -65,6 +57,11 @@ namespace ExColor
 
             _color = Color.FromRgb(_red, _green, _blue);
 
+            ChangeValues();
+        }
+
+        private void ChangeValues()
+        {
             Page.BackgroundColor = _color;
             DisplayColorLabel.Text = $"Couleur: {_color.ToHex()}";
             RectangleColor.Fill = _color;

@@ -1,0 +1,29 @@
+{
+    "articles": [
+        {
+            "nom": "Chaise ergonomique",
+            "description": "Chaise de bureau ergonomique avec support lombaire",
+            "prix": 89.99
+        },
+        {
+            "nom": "Lampe de bureau",
+            "description": "Lampe de bureau LED avec bras flexible",
+            "prix": 29.99
+        },
+        {
+            "nom": "Clavier mécanique",
+            "description": "Clavier mécanique avec rétroéclairage RGB",
+            "prix": 59.99
+        },
+        {
+            "nom": "Écran 24 pouces",
+            "description": "Écran Full HD de 24 pouces avec cadre fin",
+            "prix": 149.99
+        },
+        {
+            "nom": "Casque audio",
+            "description": "Casque audio sans fil avec réduction de bruit",
+            "prix": 99.99
+        }
+    ]
+}

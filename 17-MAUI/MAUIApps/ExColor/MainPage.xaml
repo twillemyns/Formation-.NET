@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ExColor.MainPage"
+             x:Name="Page">
+
+    <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+        <Frame BackgroundColor="White" CornerRadius="20">
+            <FlexLayout Direction="Column" JustifyContent="SpaceAround" WidthRequest="250">
+                <Label Text="Color Maker" FontSize="20"/>
+                <Label Text="Pourcentage de rouge :"/>
+                <Slider x:Name="RedSlider" 
+                        Minimum="0"
+                        Maximum="255"
+                        Value="255"
+                        MinimumTrackColor="Red"
+                        MaximumTrackColor="Black"
+                        ThumbColor="Red"
+                        ValueChanged="RedSlider_OnValueChanged"/>
+                <Label Text="Pourcentage de vert :"/>
+                <Slider x:Name="GreenSlider" 
+                        Minimum="0"
+                        Maximum="255"
+                        Value="255"
+                        MinimumTrackColor="Green"
+                        MaximumTrackColor="Black"
+                        ThumbColor="Green"
+                        ValueChanged="GreenSlider_OnValueChanged"/>
+                <Label Text="Pourcentage de bleu :"/>
+                <Slider x:Name="BlueSlider" 
+                        Minimum="0"
+                        Maximum="255"
+                        Value="255"
+                        MinimumTrackColor="Blue"
+                        MaximumTrackColor="Black"
+                        ThumbColor="Blue"
+                        ValueChanged="BlueSlider_OnValueChanged"/>
+                <Frame>
+                    <HorizontalStackLayout>
+                        <Label x:Name="DisplayColorLabel"/>
+                        <Rectangle x:Name="RectangleColor" WidthRequest="20" HeightRequest="20"/>
+                    </HorizontalStackLayout>
+                </Frame>
+                <Button Text="Couleur aléatoire" Clicked="Button_OnClicked"/>
+            </FlexLayout>
+        </Frame>
+        
+
+    </StackLayout>
+
+</ContentPage>

@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ExPendu.MainPage"
+             BackgroundColor="#efe7dc">
+
+    <Grid RowDefinitions="*,*,*">
+        <VerticalStackLayout Grid.Row="0" HorizontalOptions="Center">
+            <Label Text="Jeu du pendu" FontSize="Title"/>
+            <Label x:Name="MistakesLabel" Text="Erreurs X/7" FontSize="15"/>
+        </VerticalStackLayout>  
+        <VerticalStackLayout Grid.Row="1">
+            <Image x:Name="HangmanImage" Source="hangman_01.png" WidthRequest="150"/>
+            <Label x:Name="WordLabel" Text="___E___" FontSize="20" CharacterSpacing="2" HorizontalTextAlignment="Center"/>
+            <Label x:Name="WinLoseLabel" FontSize="Title" HorizontalTextAlignment="Center"/>
+        </VerticalStackLayout>
+        <FlexLayout Grid.Row="2" Direction="Row" JustifyContent="SpaceEvenly" Wrap="Wrap" BindableLayout.ItemsSource="{ Binding BindingKeyboard }">
+            <BindableLayout.ItemTemplate>
+                <DataTemplate>
+                    <Button Text="{Binding}" WidthRequest="40" HeightRequest="40" Margin="1" Clicked="btnLetter_Clicked"/>
+                </DataTemplate>
+            </BindableLayout.ItemTemplate>
+        </FlexLayout>
+    </Grid>
+
+</ContentPage>

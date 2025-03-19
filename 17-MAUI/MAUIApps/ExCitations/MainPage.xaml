@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ExCitations.MainPage">
+
+    <Grid ColumnDefinitions="*" RowDefinitions="3*,*">
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="1,1">
+                <GradientStop x:Name="GradientStop1" Color="Yellow"
+                          Offset="0.1" />
+                <GradientStop x:Name="GradientStop2" Color="Green"
+                              Offset="1.0" />
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Label Grid.Row="0" x:Name="QuoteLabel" FontFamily="BisonBold" Margin="50" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="Title"/>
+        <Button Grid.Row="1" Text="Get another quote ?" Clicked="Button_OnClicked" Margin="25" BackgroundColor="Black" TextColor="White"/>
+    </Grid>
+
+</ContentPage>

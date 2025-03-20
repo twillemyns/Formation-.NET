@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExCitations", "ExCitations\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExPendu", "ExPendu\ExPendu.csproj", "{5964C12B-C7F8-47AC-B45F-690917EB7CD8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExMeteo", "ExMeteo\ExMeteo.csproj", "{DB8FBA52-34A7-4C24-AB63-19164D0380DD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -49,6 +51,12 @@ Global
 		{5964C12B-C7F8-47AC-B45F-690917EB7CD8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5964C12B-C7F8-47AC-B45F-690917EB7CD8}.Release|Any CPU.Build.0 = Release|Any CPU
 		{5964C12B-C7F8-47AC-B45F-690917EB7CD8}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{DB8FBA52-34A7-4C24-AB63-19164D0380DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB8FBA52-34A7-4C24-AB63-19164D0380DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB8FBA52-34A7-4C24-AB63-19164D0380DD}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{DB8FBA52-34A7-4C24-AB63-19164D0380DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB8FBA52-34A7-4C24-AB63-19164D0380DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DB8FBA52-34A7-4C24-AB63-19164D0380DD}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

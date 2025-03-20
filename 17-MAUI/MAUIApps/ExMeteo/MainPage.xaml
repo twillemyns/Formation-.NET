@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:skia="clr-namespace:SkiaSharp.Extended.UI.Controls;assembly=SkiaSharp.Extended.UI"
+             x:Class="ExMeteo.MainPage">
+
+    <Grid RowDefinitions=".5*, *, 3*, *, 2*">
+        <HorizontalStackLayout Grid.Row="0" BackgroundColor="Red">
+            <Entry x:Name="SearchEntry" WidthRequest="350" />
+        </HorizontalStackLayout>
+        <Grid Grid.Row="1" RowDefinitions="*,*" BackgroundColor="GreenYellow">
+            <Label Grid.Row="0" x:Name="CityLabel" Text="Lille" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontSize="Title"/>
+            <Label Grid.Row="1" x:Name="DateLabel" Text="19/03/2025 14:20:43" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+        </Grid>
+        <skia:SKLottieView Grid.Row="2" x:Name="TodayWeatherImage" Source="snow-sunny.json"/>
+        <Grid Grid.Row="3" RowDefinitions="*,*" ColumnDefinitions="*, *, *">
+            <Label BackgroundColor="Blue" Grid.Row="0" Grid.Column="0" Text="Temp"/>
+            <Label BackgroundColor="Blue" x:Name="TempLabel" Grid.Row="1" Grid.Column="0"/>
+            <Label BackgroundColor="Blue" Grid.Row="0" Grid.Column="1" Text="Vent"/>
+            <Label BackgroundColor="Blue" x:Name="WindLabel" Grid.Row="1" Grid.Column="1"/>
+            <Label BackgroundColor="Blue" Grid.Row="0" Grid.Column="2" Text="Météo"/>
+            <Label BackgroundColor="Blue"  x:Name="WeatherLabel" Grid.Row="1" Grid.Column="2"/>
+        </Grid>
+        <HorizontalStackLayout Grid.Row="4" BackgroundColor="Brown">
+            <CollectionView>
+
+            </CollectionView>
+        </HorizontalStackLayout>
+    </Grid>
+
+</ContentPage>
